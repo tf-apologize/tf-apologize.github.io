@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content=":department_store: : 期货发展部—交易团队 :information_desk_person: : 汤飞 :thermometer:: 报盘模块代码走读 :house:: A410 :date:: 2019-08-28 14:00~16:00  ![标题](C:\Users\tangfei21038\Desktop\Fututrans Module code introduct">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fututrans Module code introduction">
+<meta property="og:url" content="http://yoursite.com/2020/03/16/Fututrans%20Module%20code%20introduction/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content=":department_store: : 期货发展部—交易团队 :information_desk_person: : 汤飞 :thermometer:: 报盘模块代码走读 :house:: A410 :date:: 2019-08-28 14:00~16:00  ![标题](C:\Users\tangfei21038\Desktop\Fututrans Module code introduct">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/03/16/Fututrans%20Module%20code%20introduction/picture/002.jpg">
+<meta property="article:published_time" content="2020-03-16T01:15:49.272Z">
+<meta property="article:modified_time" content="2020-03-16T01:21:17.022Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/03/16/Fututrans%20Module%20code%20introduction/picture/002.jpg">
+
+<link rel="canonical" href="http://yoursite.com/2020/03/16/Fututrans%20Module%20code%20introduction/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>Fututrans Module code introduction | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/16/Fututrans%20Module%20code%20introduction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Fututrans Module code introduction
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-03-16 09:15:49 / Modified: 09:21:17" itemprop="dateCreated datePublished" datetime="2020-03-16T09:15:49+08:00">2020-03-16</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>:department_store: : <strong>期货发展部—交易团队</strong></p>
+<p>:information_desk_person: : <strong>汤飞</strong></p>
+<p>:thermometer:: <strong>报盘模块代码走读</strong></p>
+<p>:house:: <strong>A410</strong></p>
+<p>:date:: <strong>2019-08-28 14:00~16:00</strong></p>
+<p><img src="./picture/002.jpg" alt="标题"></p>
+<p>![标题](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\1.jpg)</p>
+<h1 id="报盘模块代码走读"><a href="#报盘模块代码走读" class="headerlink" title="报盘模块代码走读"></a>报盘模块代码走读</h1><blockquote>
+<p>期货UFT报盘主要负责接收核心请求推送，然后根据各个交易所的风格将核心统一接口字段与交易所字段之间进行<strong>字段转换</strong>，再调用交易所接口发送请求到交易所，交易所应答回来再转换为统一接口字段回推给核心，核心进行相应业务处理。报盘模块除以上基本功能外，还包括<strong>心跳异常保护</strong>、<strong>流文件控制</strong>、<strong>日志子模块</strong>、<strong>监控数据处理</strong>、<strong>主备仲裁切换</strong>、<strong>轻量组播行情推送</strong>等功能。</p>
+</blockquote>
+<h2 id="报盘基础知识点"><a href="#报盘基础知识点" class="headerlink" title="报盘基础知识点"></a>报盘基础知识点</h2><blockquote>
+<p>报盘主要负责与交易所建立连接，申报、回报处理。期货UFT2.0系统报盘模块基本逻辑不复杂，但是包含的东西太多，流程处理上要考虑的因素很多，本小节将对报盘模块基础知识点进行介绍。</p>
+</blockquote>
+<p>![1566910477864](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\1566910477864.png)</p>
+<p>轻量组播为报盘与其他插件之间传递行情的通讯工具，目前接收组播行情的节点如下：</p>
+<blockquote>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> <strong>infoconvert</strong>: 将UFT2.0推出的行情格式转换为06格式的行情，然后UDP广播出去，给5.0登录服务器、第三方网关，用作订阅/主推行情使用。</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>行情降频</strong>: 将接收的轻量组播行情按照相应规则降频，然后以可靠组播方式推送出去。quote_uft推送给核心，核心用最新价计算保证金等费用。quote_db推送给参数回库插件，用于柜台数据库查询计算保证金等费用。</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>前置</strong>: 行情前置、交易前置用于给UFX订阅行情和合约信息使用。管理前置用于柜台订阅行情和合约信息使用。</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>rmrecv</strong>: 用于风控模块做风险预警。</li>
+</ul>
+<p>:panda_face:<code>关于轻量组播，轻量组播接收发送工具可以捯饬一下。</code></p>
+<p>![1566902535175](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\行情降频.png)</p>
+</blockquote>
+<p>报盘与核心之间的通讯主要以可靠组播为主，相关组播功能介绍如下：</p>
+<blockquote>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> <strong>report_mgr</strong>: 用于核心管理报盘插件，启动服务、仲裁切换，心跳应答……（核心-&gt;报盘）。</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>report_\</strong>*<strong>: 核心发往报盘的申报组播组，用于各个市场报单通道（“*</strong>”代指czce、dce、shfe、cffex、ine）（核心-&gt;交易报盘）。</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>return</strong>: 用于交易报盘向核心(排队机)发送回报、心跳请求、注册请求、仲裁请求……（交易报盘-&gt;排队机）。</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>heartbeat</strong>: 用于行情报盘向核心(排队机)发送心跳请求、注册请求、仲裁请求……（行情报盘-&gt;排队机）。</li>
+</ul>
+</blockquote>
+<h3 id="启动命名"><a href="#启动命名" class="headerlink" title="启动命名"></a>启动命名</h3><p><code>hsserver -f tf_trans_shfe.xml -start mainsvr -t ar -s 0 -status 0 -dump full -p 12345678 -RunMode 1</code></p>
+<ul>
+<li>-f：指定插件配置文件名（如：tf_trans_shfe.xml）</li>
+<li>-start：指定插件启动方式（mainsvr、proxysvr）</li>
+<li>-t：指定节点身份，报盘为<strong>ar</strong></li>
+<li>-s：实例号（用于区分不同实例）</li>
+<li>-status：清流带流（0：清流     1：带流）</li>
+<li>-dump full：Windows环境下，插件异常退出生成dump日志文件</li>
+<li>-p 123456：Windows插件正常工作密码</li>
+<li>-RunMode 1：无核心、无仲裁状态下，启动报盘连接交易所</li>
+</ul>
+<h3 id="交易所断点续传机制"><a href="#交易所断点续传机制" class="headerlink" title="交易所断点续传机制"></a>交易所断点续传机制</h3><ul>
+<li><input checked="" disabled="" type="checkbox"> <p>交易所断点续传文件均保存在“~/workspace/FutuTraderTransLog/<strong>trans_name</strong>/交易日期”路径下。</p>
+<p>:panda_face:: <code>郑商所没有断点续传文件</code></p>
+</li>
+</ul>
+<blockquote>
+<p>郑商所：断点续传通过程序中的变量控制，需要自己来维护。</p>
+</blockquote>
+<p>![1566902535175](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\代码001.png)</p>
+<blockquote>
+<p>大商所：“*.dat”文件是交易所API用做断点续传使用的文件，交易所API会自己去读写这些文件，完成断点续传操作。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><strong>文件名</strong></th>
+<th><strong>内容</strong></th>
+<th><strong>描述信息</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TRADE_PRIVATE席位号.dat</td>
+<td>私有流序号</td>
+<td></td>
+</tr>
+<tr>
+<td>TRADE_MARKET席位号.dat</td>
+<td>广播流序号</td>
+<td></td>
+</tr>
+<tr>
+<td>TRADE_HOSTDATE席位号.dat</td>
+<td>对话流序号</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>![1566902696521](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\日志002.png)</p>
+<blockquote>
+<p>上期所: “*.con”文件是交易所API用做断点续传使用的文件，交易所API会自己去读写这些文件，完成断点续传操作。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><strong>文件名</strong></th>
+<th><strong>内容</strong></th>
+<th><strong>描述信息</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TradingDay.con</td>
+<td>序列号(席位号)</td>
+<td></td>
+</tr>
+<tr>
+<td>Private.con</td>
+<td>交易所私有流序号</td>
+<td></td>
+</tr>
+<tr>
+<td>Public.con</td>
+<td>交易所公有流序号</td>
+<td></td>
+</tr>
+<tr>
+<td>TraderApiresume.con</td>
+<td>交易所流序号日期</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>![日志003](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\日志003.png)</p>
+<blockquote>
+<p>中金所: “*.con”文件是交易所API用做断点续传使用的文件，交易所API会自己去读写这些文件，完成断点续传操作。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><strong>文件名</strong></th>
+<th><strong>内容</strong></th>
+<th><strong>描述信息</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TradingDay.con</td>
+<td>序列号(席位号)</td>
+<td></td>
+</tr>
+<tr>
+<td>Private.con</td>
+<td>交易所私有流序号</td>
+<td></td>
+</tr>
+<tr>
+<td>Public.con</td>
+<td>交易所公有流序号</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>![1566902820537](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\日志004.png)</p>
+<blockquote>
+<p>能交所: “*.con”文件是交易所API用做断点续传使用的文件，交易所API会自己去读写这些文件，完成断点续传操作。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><strong>文件名</strong></th>
+<th><strong>内容</strong></th>
+<th><strong>描述信息</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TradingDay.con</td>
+<td>序列号(席位号)</td>
+<td></td>
+</tr>
+<tr>
+<td>Private.con</td>
+<td>交易所私有流序号</td>
+<td></td>
+</tr>
+<tr>
+<td>Public.con</td>
+<td>交易所公有流序号</td>
+<td></td>
+</tr>
+<tr>
+<td>TraderApiresume.con</td>
+<td>交易所流序号日期</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>![1566902872416](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\日志005.png)</p>
+<h3 id="报盘日志全家桶"><a href="#报盘日志全家桶" class="headerlink" title="报盘日志全家桶"></a>报盘日志全家桶</h3><blockquote>
+<p><strong>交易报盘</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">日志类别</th>
+<th align="center">日志路径</th>
+<th align="center">日志文件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">节点启动日志</td>
+<td align="center">~/workspace/FutuTraderTransLog</td>
+<td align="center">preStartLog_trader-<strong>appname</strong>#<strong>实例号</strong>.txt</td>
+</tr>
+<tr>
+<td align="center">初始化配置信息</td>
+<td align="center">~/workspace/FutuTraderTransLog/<strong>trans_name</strong></td>
+<td align="center">transParam-<strong>trans_name</strong>-hsqhtrans.ini</td>
+</tr>
+<tr>
+<td align="center">报盘运行日志</td>
+<td align="center">~/workspace/FutuTraderTransLog/<strong>trans_name</strong>/交易日期</td>
+<td align="center">log_RunningInfo_<strong>trans_name</strong>_交易日期.txt</td>
+</tr>
+<tr>
+<td align="center">插件启动日志</td>
+<td align="center">~/workspace/log</td>
+<td align="center">系统日期-<strong>trans_name</strong>-mainsvr-<strong>实例号</strong>–1.log</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>行情报盘</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">日志类别</th>
+<th align="center">日志路径</th>
+<th align="center">日志文件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">节点启动日志</td>
+<td align="center">~/workspace/FutuQuoteTransLog</td>
+<td align="center">preStartLog_quote-<strong>appname</strong>#<strong>实例号</strong>.txt</td>
+</tr>
+<tr>
+<td align="center">初始化配置信息</td>
+<td align="center">~/workspace/FutuQuoteTransLog/<strong>trans_name</strong></td>
+<td align="center">transParam-hsqhquote-<strong>trans_name</strong>.ini</td>
+</tr>
+<tr>
+<td align="center">报盘运行日志</td>
+<td align="center">~/workspace/FutuQuoteTransLog/<strong>trans_name</strong>/系统日期</td>
+<td align="center">log_RunningInfo_<strong>trans_name</strong>_系统日期.txt</td>
+</tr>
+<tr>
+<td align="center">插件启动日志</td>
+<td align="center">~/workspace/log</td>
+<td align="center">系统日期-<strong>trans_name</strong>-mainsvr-<strong>实例号</strong>–1.log</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>交易所</strong></p>
+<p>日志路径均为：~/workspace/FutuTraderTransLog/<strong>trans_name</strong>/交易日期</p>
+<p>:panda_face: <code>如果大连发生重连，则会将原有日志文件“TradeAPIPackage.txt”重命名为“时-分-秒-毫秒_TradeAPIPackage.txt”，避免历史日志丢失。</code></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">交易所类别</th>
+<th>请求日志文件</th>
+<th>应答日志文件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">F1</td>
+<td>私有流：SYUP.txt<br/>广播流：GBUP.txt<br/>对话流：DHUP.txt</td>
+<td>私有流：SYDW.txt<br/>广播流：GBDW.txt<br/>对话流：DHDW.txt</td>
+</tr>
+<tr>
+<td align="center">F2</td>
+<td>TradeAPIPackage.txt</td>
+<td>TradeAPIPackage.txt</td>
+</tr>
+<tr>
+<td align="center">F3</td>
+<td>ShfeReq.log</td>
+<td>ShfeRsp.log</td>
+</tr>
+<tr>
+<td align="center">F4</td>
+<td>CffexReq.log</td>
+<td>CffexRsp.log</td>
+</tr>
+<tr>
+<td align="center">F5</td>
+<td>IneReq.log</td>
+<td>IneRsp.log</td>
+</tr>
+</tbody></table>
+<h3 id="日志查看"><a href="#日志查看" class="headerlink" title="日志查看"></a>日志查看</h3><blockquote>
+<p>郑州</p>
+</blockquote>
+<p>![1566902872416](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\交易所文档001.png)</p>
+<p>![1566902872416](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\日志分析001.png)</p>
+<p>![1566902872416](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\日志分析002.png)</p>
+<blockquote>
+<p>大连</p>
+</blockquote>
+<p>![1566902872416](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\交易所文档002.png)</p>
+<p>![1566902872416](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\交易所文档003.png)</p>
+<p>![1566902872416](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\交易所文档004.png)</p>
+<p>![1566902872416](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\日志分析003.png)</p>
+<p>![1566902872416](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\日志分析004.png)</p>
+<blockquote>
+<p>上海</p>
+</blockquote>
+<p>![1566902872416](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\交易所文档005.png)</p>
+<p>![1566902872416](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\日志分析008.png)</p>
+<p>![1566902872416](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\日志分析005.png)</p>
+<blockquote>
+<p>中金</p>
+</blockquote>
+<p>![1566902872416](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\日志分析006.png)</p>
+<p>![1566902872416](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\日志分析007.png)</p>
+<blockquote>
+<p>能源</p>
+</blockquote>
+<p>同上海保持一致。</p>
+<h2 id="业务处理"><a href="#业务处理" class="headerlink" title="业务处理"></a>业务处理</h2><h3 id="报单回报流程"><a href="#报单回报流程" class="headerlink" title="报单回报流程"></a>报单回报流程</h3><p>![1566909762826](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\1566909762826.png)</p>
+<h3 id="流序号"><a href="#流序号" class="headerlink" title="流序号"></a><strong>流序号</strong></h3><blockquote>
+<p>报盘定时将当前流序号回写核心，当重启服务或者主备切换时，核心仲裁指令会将该流序号发送到报盘，报盘将该流序号以16进制形式写入交易对应文件中，交易所API根据此序号进行续传。</p>
+</blockquote>
+<h3 id="过滤重复报单"><a href="#过滤重复报单" class="headerlink" title="过滤重复报单"></a><strong>过滤重复报单</strong></h3><blockquote>
+<p>报盘维系着一个最大本地单号，核心的申报本地单号只有大于该最大本地单号，才允许申报，否则直接过滤。如果发生主备切换，登录交易所返回当前席位已申报最大本地单号，更新报盘当前最大本地单号，市场状态回写时将该最大本地单号回写核心，核心进行更新（不小于该最大本地单号）。</p>
+<p>:panda_face: <code>大商所本地单号按品种校验，不同品种之间本地单号不要严格正相关性。</code></p>
+</blockquote>
+<h3 id="过滤重复回报"><a href="#过滤重复回报" class="headerlink" title="过滤重复回报"></a><strong>过滤重复回报</strong></h3><blockquote>
+<p>委托回报报盘会将主场单号=&gt;交易编码存入map中，对话流和私有流谁先回来处理谁，后到了直接过滤掉。</p>
+<p>:panda_face: <code>委托查询应答不参与主场单号过滤。</code></p>
+</blockquote>
+<h3 id="席位过滤"><a href="#席位过滤" class="headerlink" title="席位过滤"></a><strong>席位过滤</strong></h3><blockquote>
+<p>报盘目前仅支持席位过滤白名单，不在接收席位列表中的席位回报过滤。交易所强平不参与席位过滤。</p>
+</blockquote>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><h3 id="交易报盘配置"><a href="#交易报盘配置" class="headerlink" title="交易报盘配置"></a>交易报盘配置</h3><blockquote>
+<ul>
+<li><p><strong>trans_name</strong>：报盘名字，主键，与数据库中trans_name、svrinfo.txt中报盘trans_name保持一致</p>
+</li>
+<li><p><strong>timecounting</strong>：统计耗时，暂未使用</p>
+</li>
+<li><p><strong>quote_pub_rmgroup</strong>：轻量组播主题名</p>
+</li>
+<li><p><strong>quote_pub_rmsendid</strong>：轻量组播发送编号（批次号），不配置默认使用appname，目前仅郑州交易有配，由于交易和行情部署在一次，为了批次号上区分。</p>
+</li>
+<li><p><strong>trans_ip</strong>：报盘IP</p>
+</li>
+<li><p><strong>trans_mac</strong>：报盘MAC</p>
+</li>
+<li><p><strong>quote_pub_rmfile</strong>：轻量组播配置文件，默认deploy.xml</p>
+</li>
+<li><p><strong>trans_id</strong>：报盘编号，暂时未使用</p>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;plugin lib&#x3D;&quot;fsc_fututradertrans&quot; instance&#x3D;&quot;0&quot; getinfo&#x3D;&quot;GetTransInfo&quot; load_level&#x3D;&quot;2&quot; note&#x3D;&quot;中金报盘&quot;&gt;</span><br><span class="line">    &lt;!--注：trans_name是接收申报的报盘名</span><br><span class="line">    报单，报盘管理等组播接收时报盘根据该ID判断是否是组播给本报盘的请求，不能重复，该ID与数据库内的trans_name对应</span><br><span class="line">    trans_id报盘全部唯一（包括行情和交易），主备不用区分，一致。--&gt;</span><br><span class="line">    &lt;args trans_name&#x3D;&quot;A_trans_cffex&quot; timecounting&#x3D;&quot;0&quot; quote_pub_rmgroup&#x3D;&quot;quote&quot;&#x2F;&gt;</span><br><span class="line">    &lt;rm_channels note&#x3D;&quot;组播信息&quot;&gt;</span><br><span class="line">        &lt;sends&gt;</span><br><span class="line">            &lt;send name&#x3D;&quot;return&quot; note&#x3D;&quot;回报&quot;&#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;sends&gt;</span><br><span class="line">        &lt;recvs&gt;</span><br><span class="line">            &lt;recv name&#x3D;&quot;report_cffex&quot; note&#x3D;&quot;中金申报&quot;&#x2F;&gt;</span><br><span class="line">            &lt;recv name&#x3D;&quot;report_mgr&quot; note&#x3D;&quot;报盘管理&quot;&#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;recvs&gt;</span><br><span class="line">    &lt;&#x2F;rm_channels&gt;</span><br><span class="line">&lt;&#x2F;plugin&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="行情报盘配置"><a href="#行情报盘配置" class="headerlink" title="行情报盘配置"></a>行情报盘配置</h3><blockquote>
+<ul>
+<li><p>trans_name：报盘名字，主键，与数据库中trans_name、svrinfo.txt中报盘trans_name保持一致</p>
+</li>
+<li><p>quote_pub_rmgroup：轻量组播主题名</p>
+</li>
+<li><p>thread_num：轻量组播发送线程个数，不配默认四个线程。</p>
+</li>
+<li><p>multi_quote_switch：组播行情配置开关(‘1’:开启  其他(或不配置):关闭），用于控制是否加载deploy.xml组播行情配置。目前仅上海、能源市场有此配置。</p>
+</li>
+<li><p>quote_pub_rmsendid：轻量组播发送编号（批次号），不配置默认使用appname。暂未使用。</p>
+</li>
+<li><p>trans_ip：报盘IP</p>
+</li>
+<li><p>trans_mac：报盘MAC</p>
+</li>
+<li><p>quote_pub_rmfile：轻量组播配置文件，默认deploy.xml</p>
+</li>
+<li><p>trans_id：报盘编号用于唯一区分报盘，暂时未使用。目前使用参数唯一区分。</p>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span> <span class="attr">lib</span>=<span class="string">"fsc_futuquotetrans"</span> <span class="attr">instance</span>=<span class="string">"0"</span> <span class="attr">getinfo</span>=<span class="string">"GetQuoteTransInfo"</span> <span class="attr">load_level</span>=<span class="string">"2"</span> <span class="attr">note</span>=<span class="string">"上海行情报盘"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--seatno:为接收的连接交易所的席位组，quote_pub_rmgroup为快速组播名。</span></span><br><span class="line"><span class="comment">    trans_id报盘全部唯一（包括行情和交易），主备不用区分，一致。</span></span><br><span class="line"><span class="comment">    multi_quote_switch:组播行情配置开关('1':开启  其他(或不配置):关闭）--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">args</span> <span class="attr">trans_name</span>=<span class="string">"A_quote_shfe"</span> <span class="attr">quote_pub_rmgroup</span>=<span class="string">"quote"</span> <span class="attr">thread_num</span>=<span class="string">"1"</span> <span class="attr">multi_quote_switch</span>=<span class="string">"1"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">rm_channels</span> <span class="attr">note</span>=<span class="string">"组播信息"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">sends</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">send</span> <span class="attr">name</span>=<span class="string">"heartbeat"</span> <span class="attr">note</span>=<span class="string">"行情心跳"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">sends</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">recvs</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">recv</span> <span class="attr">name</span>=<span class="string">"report_mgr"</span> <span class="attr">note</span>=<span class="string">"报盘管理"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">recvs</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">rm_channels</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="通讯层配置"><a href="#通讯层配置" class="headerlink" title="通讯层配置"></a>通讯层配置</h3><blockquote>
+<p>slightrm: 轻量组播配置块</p>
+<blockquote>
+<p>rm: 轻量组播主题配置块（name：主题     multicast_ip：地址、端口配置）</p>
+<blockquote>
+<p>sender：组播发送者配置（name：发送者标识，索引位置即为唯一区分和过滤去重的批次号）</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">slightrm</span> <span class="attr">note</span>=<span class="string">"行情降频快速组播配置"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">rm</span> <span class="attr">name</span>=<span class="string">"quote"</span> <span class="attr">multicast_ip</span>=<span class="string">"234.17.15.251:19999"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">sender</span> <span class="attr">name</span>=<span class="string">"A_trans_czce"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">sender</span> <span class="attr">name</span>=<span class="string">"A_czce_forquote"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">sender</span> <span class="attr">name</span>=<span class="string">"A_quote_dce"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">sender</span> <span class="attr">name</span>=<span class="string">"A_quote_shfe"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">sender</span> <span class="attr">name</span>=<span class="string">"A_quote_cffex"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">sender</span> <span class="attr">name</span>=<span class="string">"A_quote_ine"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">sender</span> <span class="attr">name</span>=<span class="string">"A_trans_dce"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">sender</span> <span class="attr">name</span>=<span class="string">"A_trans_cffex"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">sender</span> <span class="attr">name</span>=<span class="string">"A_trans_shfe"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">sender</span> <span class="attr">name</span>=<span class="string">"A_trans_ine"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">sender</span> <span class="attr">name</span>=<span class="string">"A_trans_cffex_otc"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">rm</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 多个组播组可以在这里添加 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">slightrm</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>multi_quote: 组播行情配置块</p>
+<blockquote>
+<p>net_card: 网卡配置信息块</p>
+<blockquote>
+<ul>
+<li><strong>appname</strong>: 进程名#实例号</li>
+<li><strong>multi_interface</strong>: 本机组播网卡物理地址，多个网卡地址用”;”分隔(注意末尾分隔符结束)</li>
+</ul>
+</blockquote>
+</blockquote>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">multi_quote</span> <span class="attr">note</span>=<span class="string">"组播行情配置信息"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">net_card</span> <span class="attr">note</span>=<span class="string">"网卡配置信息"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- appname:进程名#实例号   multi_interface:本机组播网卡物理地址，多个网卡地址用";"分隔(注意末尾分隔符结束)</span></span><br><span class="line"><span class="comment">        【注意：#2为#0冷备，#3为#1冷备，冷备节点配置与对应节点配置保持一致，且只能在对应节点机器上启动】--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">appname</span>=<span class="string">"A_quote_shfe#0"</span> <span class="attr">multi_interface</span>=<span class="string">"192.168.1.1;192.168.1.2;"</span> <span class="attr">note</span>=<span class="string">"上海组播行情物理网卡地址配置"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">appname</span>=<span class="string">"A_quote_shfe#1"</span> <span class="attr">multi_interface</span>=<span class="string">"192.168.1.3;192.168.1.4;"</span> <span class="attr">note</span>=<span class="string">"上海组播行情物理网卡地址配置"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">appname</span>=<span class="string">"A_quote_shfe#2"</span> <span class="attr">multi_interface</span>=<span class="string">"192.168.1.1;192.168.1.2;"</span> <span class="attr">note</span>=<span class="string">"上海组播行情物理网卡地址配置"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">appname</span>=<span class="string">"A_quote_shfe#3"</span> <span class="attr">multi_interface</span>=<span class="string">"192.168.1.3;192.168.1.4;"</span> <span class="attr">note</span>=<span class="string">"上海组播行情物理网卡地址配置"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">appname</span>=<span class="string">"A_quote_ine#0"</span> <span class="attr">multi_interface</span>=<span class="string">"192.168.1.1;192.168.1.2;"</span> <span class="attr">note</span>=<span class="string">"能源组播行情物理网卡地址配置"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">appname</span>=<span class="string">"A_quote_ine#1"</span> <span class="attr">multi_interface</span>=<span class="string">"192.168.1.3;192.168.1.4;"</span> <span class="attr">note</span>=<span class="string">"能源组播行情物理网卡地址配置"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">appname</span>=<span class="string">"A_quote_ine#2"</span> <span class="attr">multi_interface</span>=<span class="string">"192.168.1.1;192.168.1.2;"</span> <span class="attr">note</span>=<span class="string">"能源组播行情物理网卡地址配置"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">appname</span>=<span class="string">"A_quote_ine#3"</span> <span class="attr">multi_interface</span>=<span class="string">"192.168.1.3;192.168.1.4;"</span> <span class="attr">note</span>=<span class="string">"能源组播行情物理网卡地址配置"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">net_card</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">multi_quote</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<ul>
+<li><p><strong>report_mgr</strong>: 用于核心管理报盘插件，启动服务、冲裁切换，心跳应答……（核心-&gt;报盘）。</p>
+</li>
+<li><p><strong>report_\</strong>*<strong>: 核心发往报盘的申报组播组，用于各个市场报单通道（“*</strong>”代指czce、dce、shfe、cffex、ine）（核心-&gt;交易报盘）。</p>
+</li>
+<li><p><strong>return</strong>: 用于交易报盘向核心(排队机)发送回报、心跳请求、注册请求、仲裁请求……（交易报盘-&gt;排队机）。</p>
+</li>
+<li><p><strong>heartbeat</strong>: 用于行情报盘向核心(排队机)发送心跳请求、注册请求、仲裁请求……（行情报盘-&gt;排队机）。</p>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--交易核心,组播地址段：234.xxx.xxx.51 - 234.xxx.xxx.100,端口号段：11000 - 11999--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--交易核心应答组播给前置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">result</span> <span class="attr">appname</span>=<span class="string">"A_uft"</span> <span class="attr">address</span>=<span class="string">"234.17.15.51:11000"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--交易核心报盘管理,交易核心组播给报盘--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">report_mgr</span> <span class="attr">appname</span>=<span class="string">"A_uft"</span> <span class="attr">address</span>=<span class="string">"234.17.15.52:11010"</span> <span class="attr">fast_mode</span>=<span class="string">"1"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--交易核心郑州申报,交易核心组播给交易报盘--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">report_czce</span> <span class="attr">appname</span>=<span class="string">"A_uft"</span> <span class="attr">address</span>=<span class="string">"234.17.15.53:11020"</span> <span class="attr">fast_mode</span>=<span class="string">"1"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--交易核心大连申报,交易核心组播给交易报盘--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">report_dce</span> <span class="attr">appname</span>=<span class="string">"A_uft"</span> <span class="attr">address</span>=<span class="string">"234.17.15.54:11030"</span> <span class="attr">fast_mode</span>=<span class="string">"1"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--交易核心上海申报,交易核心组播给交易报盘--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">report_shfe</span> <span class="attr">appname</span>=<span class="string">"A_uft"</span> <span class="attr">address</span>=<span class="string">"234.17.15.55:11040"</span> <span class="attr">fast_mode</span>=<span class="string">"1"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--交易核心中金申报,交易核心组播给交易报盘--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">report_cffex</span> <span class="attr">appname</span>=<span class="string">"A_uft"</span> <span class="attr">address</span>=<span class="string">"234.17.15.56:11050"</span> <span class="attr">fast_mode</span>=<span class="string">"1"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--交易核心能源申报,交易核心组播给交易报盘--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">report_ine</span> <span class="attr">appname</span>=<span class="string">"A_uft"</span> <span class="attr">address</span>=<span class="string">"234.17.15.57:11060"</span> <span class="attr">fast_mode</span>=<span class="string">"1"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--交易核心上海证券申报,交易核心组播给交易报盘--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">report</span> <span class="attr">appname</span>=<span class="string">"A_uft"</span> <span class="attr">address</span>=<span class="string">"234.17.15.61:11100"</span> <span class="attr">fast_mode</span>=<span class="string">"1"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--交易核心深圳证券申报,交易核心组播给交易报盘--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">report_optsz</span> <span class="attr">appname</span>=<span class="string">"A_uft"</span> <span class="attr">address</span>=<span class="string">"234.17.15.62:11110"</span> <span class="attr">fast_mode</span>=<span class="string">"1"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--交易核心期转现应答,交易核心组播给交易报盘--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">report_cffex_otc</span> <span class="attr">appname</span>=<span class="string">"A_uft"</span> <span class="attr">address</span>=<span class="string">"234.17.15.64:11130"</span> <span class="attr">fast_mode</span>=<span class="string">"1"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--查询核心应答组播给前置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">result_query</span> <span class="attr">appname</span>=<span class="string">"A_uft"</span> <span class="attr">address</span>=<span class="string">"234.17.15.58:11070"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--交易核心组播给UF2.0回库--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">sync_param</span> <span class="attr">appname</span>=<span class="string">"A_uft"</span> <span class="attr">address</span>=<span class="string">"234.17.15.59:11080"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--交易数据回写，核心交易数据回写--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">sync_trade</span> <span class="attr">appname</span>=<span class="string">"A_uft"</span> <span class="attr">address</span>=<span class="string">"234.17.15.60:11090"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--交易核心同步风控、主推前置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">sync_mc</span> <span class="attr">appname</span>=<span class="string">"A_uft"</span> <span class="attr">address</span>=<span class="string">"234.17.15.63:11120"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--排队机配置,组播地址段：234.xxx.xxx.101 - 234.xxx.xxx.160,端口号段：12000 - 12999--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--排队机之间的同步，fast_mode必须填为0--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">sync_queue</span> <span class="attr">appname</span>=<span class="string">"A_uft"</span> <span class="attr">address</span>=<span class="string">"234.17.15.101:12000"</span> <span class="attr">fast_mode</span>=<span class="string">"0"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--交易数据，排队机组播给核心--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">trade</span> <span class="attr">appname</span>=<span class="string">"A_uft"</span> <span class="attr">address</span>=<span class="string">"234.17.15.102:12010"</span> <span class="attr">fast_mode</span>=<span class="string">"1"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 报盘配置,组播地址段：234.xxx.xxx.161-234.xxx.xxx.230,端口号段：13000 - 14999--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--报盘回报，报盘-&gt;排队机--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">return</span> <span class="attr">appname</span>=<span class="string">"A_trans_czce#0"</span> <span class="attr">address</span>=<span class="string">"234.17.15.161:13000"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">return</span> <span class="attr">appname</span>=<span class="string">"A_trans_czce#1"</span> <span class="attr">address</span>=<span class="string">"234.17.15.162:13010"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">return</span> <span class="attr">appname</span>=<span class="string">"A_trans_czce#2"</span> <span class="attr">address</span>=<span class="string">"234.17.15.163:13020"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">return</span> <span class="attr">appname</span>=<span class="string">"A_trans_czce#3"</span> <span class="attr">address</span>=<span class="string">"234.17.15.164:13030"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">return</span> <span class="attr">appname</span>=<span class="string">"A_trans_dce#0"</span> <span class="attr">address</span>=<span class="string">"234.17.15.165:13040"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">return</span> <span class="attr">appname</span>=<span class="string">"A_trans_dce#1"</span> <span class="attr">address</span>=<span class="string">"234.17.15.166:13050"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">return</span> <span class="attr">appname</span>=<span class="string">"A_trans_dce#2"</span> <span class="attr">address</span>=<span class="string">"234.17.15.167:13060"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">return</span> <span class="attr">appname</span>=<span class="string">"A_trans_dce#3"</span> <span class="attr">address</span>=<span class="string">"234.17.15.168:13070"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">return</span> <span class="attr">appname</span>=<span class="string">"A_trans_shfe#0"</span> <span class="attr">address</span>=<span class="string">"234.17.15.169:13080"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">return</span> <span class="attr">appname</span>=<span class="string">"A_trans_shfe#1"</span> <span class="attr">address</span>=<span class="string">"234.17.15.170:13090"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">return</span> <span class="attr">appname</span>=<span class="string">"A_trans_shfe#2"</span> <span class="attr">address</span>=<span class="string">"234.17.15.171:13100"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">return</span> <span class="attr">appname</span>=<span class="string">"A_trans_shfe#3"</span> <span class="attr">address</span>=<span class="string">"234.17.15.172:13110"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">return</span> <span class="attr">appname</span>=<span class="string">"A_trans_cffex#0"</span> <span class="attr">address</span>=<span class="string">"234.17.15.173:13120"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">return</span> <span class="attr">appname</span>=<span class="string">"A_trans_cffex#1"</span> <span class="attr">address</span>=<span class="string">"234.17.15.174:13130"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">return</span> <span class="attr">appname</span>=<span class="string">"A_trans_cffex#2"</span> <span class="attr">address</span>=<span class="string">"234.17.15.175:13140"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">return</span> <span class="attr">appname</span>=<span class="string">"A_trans_cffex#3"</span> <span class="attr">address</span>=<span class="string">"234.17.15.176:13150"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">return</span> <span class="attr">appname</span>=<span class="string">"A_trans_ine#0"</span> <span class="attr">address</span>=<span class="string">"234.17.15.177:13160"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">return</span> <span class="attr">appname</span>=<span class="string">"A_trans_ine#1"</span> <span class="attr">address</span>=<span class="string">"234.17.15.178:13170"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">return</span> <span class="attr">appname</span>=<span class="string">"A_trans_ine#2"</span> <span class="attr">address</span>=<span class="string">"234.17.15.179:13180"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">return</span> <span class="attr">appname</span>=<span class="string">"A_trans_ine#3"</span> <span class="attr">address</span>=<span class="string">"234.17.15.180:13190"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">return</span> <span class="attr">appname</span>=<span class="string">"A_trans_cffex_otc#0"</span> <span class="attr">address</span>=<span class="string">"234.17.15.201:13200"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">return</span> <span class="attr">appname</span>=<span class="string">"A_trans_cffex_otc#1"</span> <span class="attr">address</span>=<span class="string">"234.17.15.202:13210"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--行情报盘心跳，报盘-&gt;排队机--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heartbeat</span> <span class="attr">appname</span>=<span class="string">"A_trans_czce#0"</span> <span class="attr">address</span>=<span class="string">"234.17.15.181:14000"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heartbeat</span> <span class="attr">appname</span>=<span class="string">"A_trans_czce#1"</span> <span class="attr">address</span>=<span class="string">"234.17.15.182:14010"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heartbeat</span> <span class="attr">appname</span>=<span class="string">"A_trans_czce#2"</span> <span class="attr">address</span>=<span class="string">"234.17.15.183:14020"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heartbeat</span> <span class="attr">appname</span>=<span class="string">"A_trans_czce#3"</span> <span class="attr">address</span>=<span class="string">"234.17.15.184:14030"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heartbeat</span> <span class="attr">appname</span>=<span class="string">"A_quote_dce#0"</span> <span class="attr">address</span>=<span class="string">"234.17.15.185:14040"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heartbeat</span> <span class="attr">appname</span>=<span class="string">"A_quote_dce#1"</span> <span class="attr">address</span>=<span class="string">"234.17.15.186:14050"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heartbeat</span> <span class="attr">appname</span>=<span class="string">"A_quote_dce#2"</span> <span class="attr">address</span>=<span class="string">"234.17.15.187:14060"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heartbeat</span> <span class="attr">appname</span>=<span class="string">"A_quote_dce#3"</span> <span class="attr">address</span>=<span class="string">"234.17.15.188:14070"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heartbeat</span> <span class="attr">appname</span>=<span class="string">"A_quote_shfe#0"</span> <span class="attr">address</span>=<span class="string">"234.17.15.189:14080"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heartbeat</span> <span class="attr">appname</span>=<span class="string">"A_quote_shfe#1"</span> <span class="attr">address</span>=<span class="string">"234.17.15.190:14090"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heartbeat</span> <span class="attr">appname</span>=<span class="string">"A_quote_shfe#2"</span> <span class="attr">address</span>=<span class="string">"234.17.15.191:14100"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heartbeat</span> <span class="attr">appname</span>=<span class="string">"A_quote_shfe#3"</span> <span class="attr">address</span>=<span class="string">"234.17.15.192:14110"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heartbeat</span> <span class="attr">appname</span>=<span class="string">"A_quote_cffex#0"</span> <span class="attr">address</span>=<span class="string">"234.17.15.193:14120"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heartbeat</span> <span class="attr">appname</span>=<span class="string">"A_quote_cffex#1"</span> <span class="attr">address</span>=<span class="string">"234.17.15.194:14130"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heartbeat</span> <span class="attr">appname</span>=<span class="string">"A_quote_cffex#2"</span> <span class="attr">address</span>=<span class="string">"234.17.15.195:14140"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heartbeat</span> <span class="attr">appname</span>=<span class="string">"A_quote_cffex#3"</span> <span class="attr">address</span>=<span class="string">"234.17.15.196:14150"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heartbeat</span> <span class="attr">appname</span>=<span class="string">"A_quote_ine#0"</span> <span class="attr">address</span>=<span class="string">"234.17.15.197:14160"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heartbeat</span> <span class="attr">appname</span>=<span class="string">"A_quote_ine#1"</span> <span class="attr">address</span>=<span class="string">"234.17.15.198:14170"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heartbeat</span> <span class="attr">appname</span>=<span class="string">"A_quote_ine#2"</span> <span class="attr">address</span>=<span class="string">"234.17.15.199:14180"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">heartbeat</span> <span class="attr">appname</span>=<span class="string">"A_quote_ine#3"</span> <span class="attr">address</span>=<span class="string">"234.17.15.200:14190"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="报盘启动时序"><a href="#报盘启动时序" class="headerlink" title="报盘启动时序"></a>报盘启动时序</h2><blockquote>
+<p>启动报盘进程和启动报盘服务分开，启动进程时服务默认是关闭状态。运维流程中将启动报盘进程和启动报盘服务分开，夜盘闭市后，不关闭进程，只关闭服务,早盘只需启动报盘服务即可。</p>
+</blockquote>
+<p>![1566902189779](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\1566902189779.png)</p>
+<h2 id="市场之间的差异性"><a href="#市场之间的差异性" class="headerlink" title="市场之间的差异性"></a>市场之间的差异性</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> <strong>流序号</strong><ul>
+<li>郑州需要自己维护，其他由交易所自己维护。</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>断开重连</strong><ul>
+<li>郑州、大连由会员端自己维护，其他市场由交易所API维护。</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>市场状态</strong><ul>
+<li>郑州、大连市场状态交易所单独主推，其他市场需要根据合约状态计算当前市场状态。</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>进程实例</strong><ul>
+<li>郑州交易、行情部署在一起为一个进程，其他市场行情与交易分为两个独立的进程。</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>报价回报</strong><ul>
+<li>大连没有报价委托回报，是根据两笔派生委托回报造一笔报价委托回报回写核心。郑州则有报价，没派生，订单复用会根据报价造两笔派生委托回报。能源市场暂无报价、询价业务。</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>异地强平撤单</strong><ul>
+<li>郑州由于本地强平，交易所私有流异地补单中没有强平原因字段，A中心下的强平单，B中心可以撤。通过transform_send发送514438同步强平原因。</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <strong>交易所强平</strong><ul>
+<li><strong>主场单号</strong>: 上期所和中金所强平没有委托回报，且存在主场单号为空场景。当主场单号为空时，使用“FC成交编号+买卖方向”作为主场单号。先补一笔委托回报，然后会成交回报。</li>
+<li><strong>本地单号</strong>: 当主场单号非空，使用“FC主场单号”，否则使用“FC成交编号+买卖方向”。</li>
+<li><strong>错误信息</strong>: 委托的错误信息里填充“交易所强平”说明信息。</li>
+<li><strong>席位号</strong>: 强平委托的席位号用“FC席位号”的形式返回给核心，这样做可以避免判断成本地席位。也可以避免像大连一样强平时没有席位号的情况。</li>
+<li><strong>席位过滤</strong>: 交易所强平不参与席位过滤逻辑。</li>
+</ul>
+</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="交易所强平"><a href="#交易所强平" class="headerlink" title="交易所强平"></a>交易所强平</h3><ul>
+<li><input checked="" disabled="" type="checkbox"> <p>郑商所</p>
+<ul>
+<li>强平字段：[FID_OffsetFlag]=[2]</li>
+<li>异常现象：强平单的委托和成交回报的本地单号为EXCHANGE CUT ORD，导致我们后台补单异常</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>大商所</p>
+<ul>
+<li>强平字段：[EoFlag]=[4]</li>
+<li>异常现象：强平单的委托回报和成交回报的席位号为空。导致我们后台补单异常。（06是席位用会员号填充了）</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>上期所</p>
+<ul>
+<li>强平字段：[OffsetFlag]=[2]</li>
+<li>异常现象：交易所强平分两种情况，有单号和没单号这两种情况都有可能，属于正常场景<ul>
+<li>如果有违规的客户2个违规持仓正好一样，就交易所内部平掉了，所以没有单号<pre><code>没有委托回报，只有成交回报，且主场单号为空，无本地单号，席位为操作员代称</code></pre></li>
+<li>如果是没有对手方违规，他就会放出市场成交，就会有单号<pre><code>有委托回报，有成交回报，有主场单号，无本地单号，席位为操作员代称</code></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>中金所</p>
+<p>同上期所</p>
+</li>
+<li><input checked="" disabled="" type="checkbox"> <p>能交所</p>
+<p>同上期所</p>
+</li>
+</ul>
+<h3 id="运维"><a href="#运维" class="headerlink" title="运维"></a>运维</h3><blockquote>
+<p><strong>运维操作</strong></p>
+</blockquote>
+<p>![1566902189779](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\报盘运维001.png)</p>
+<blockquote>
+<p><strong>期货报盘运维</strong></p>
+</blockquote>
+<p>![1566902189779](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\报盘运维002.png)</p>
+<blockquote>
+<p><strong>报盘菜单系列</strong></p>
+<ul>
+<li><p>委托查询</p>
+</li>
+<li><p>成交查询</p>
+</li>
+<li><p>合约查询</p>
+</li>
+<li><p>报价查询</p>
+</li>
+<li><p>修改密码</p>
+</li>
+<li><p>交易所强制初始化：交易所数据流重收（郑商所盘中连续交易期间，5000笔上限控制，需更换地址）</p>
+<ul>
+<li>系统清流重拉</li>
+<li>关闭报盘服务-&gt;执行交易所强制初始化-&gt;启动报盘服务</li>
+</ul>
+</li>
+<li><p>重启报盘服务</p>
+</li>
+<li><p>UFT报盘参数修改</p>
+</li>
+<li><p>报盘进程状态修正</p>
+</li>
+<li><p>报盘仲裁状态重置</p>
+</li>
+</ul>
+</blockquote>
+<p>![1566902189779](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\报盘运维005.png)</p>
+<blockquote>
+<p><strong>报盘参数修改</strong></p>
+</blockquote>
+<p>![1566902189779](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\报盘运维003.png)</p>
+<p>![1566902189779](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\报盘运维004.png)</p>
+<h3 id="浅谈仲裁"><a href="#浅谈仲裁" class="headerlink" title="浅谈仲裁"></a>浅谈仲裁</h3><blockquote>
+<p>​         报盘机状态主要有准备就绪、主机、单机、备机、未知几种状态，初始启动成功时为准备就绪状态，当报盘向核心注册成功后主动发起仲裁请求指令，核心根据当前核心已注册报盘列表情况以及状态，赋予当前报盘机状态。正常工作期间，第一个注册的报盘被仲裁为单机，当备报盘也发起仲裁请求时，则将原有单机报盘切换为主机，备报盘状态为备机状态。</p>
+<p>​          巡检主要用于各个市场报盘彼此之间相互监督，一旦某个市场主备报盘均异常（如：机器宕机、进程异常退出），其他市场发起的巡检会触发核心心跳超时检查逻辑，会将超时报盘机状态置为未知状态。</p>
+</blockquote>
+<p>![1566961592525](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\1566961592525.png)</p>
+<h3 id="交易所接口文档剖析"><a href="#交易所接口文档剖析" class="headerlink" title="交易所接口文档剖析"></a>交易所接口文档剖析</h3><blockquote>
+<p>详情请参与交易所文档。</p>
+</blockquote>
+<p>![1566902189779](C:\Users\tangfei21038\Desktop\Fututrans Module code introduction\picture\加载失败.png)</p>
+<p>:email: <a href="mailto:tangfei21038@hundsun.com">tangfei21038@hundsun.com</a></p>
+<p>:phone: 0751-26691465</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/16/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#报盘模块代码走读"><span class="nav-number">1.</span> <span class="nav-text">报盘模块代码走读</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#报盘基础知识点"><span class="nav-number">1.1.</span> <span class="nav-text">报盘基础知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#启动命名"><span class="nav-number">1.1.1.</span> <span class="nav-text">启动命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交易所断点续传机制"><span class="nav-number">1.1.2.</span> <span class="nav-text">交易所断点续传机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#报盘日志全家桶"><span class="nav-number">1.1.3.</span> <span class="nav-text">报盘日志全家桶</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日志查看"><span class="nav-number">1.1.4.</span> <span class="nav-text">日志查看</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#业务处理"><span class="nav-number">1.2.</span> <span class="nav-text">业务处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#报单回报流程"><span class="nav-number">1.2.1.</span> <span class="nav-text">报单回报流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流序号"><span class="nav-number">1.2.2.</span> <span class="nav-text">流序号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤重复报单"><span class="nav-number">1.2.3.</span> <span class="nav-text">过滤重复报单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤重复回报"><span class="nav-number">1.2.4.</span> <span class="nav-text">过滤重复回报</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#席位过滤"><span class="nav-number">1.2.5.</span> <span class="nav-text">席位过滤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置文件"><span class="nav-number">1.3.</span> <span class="nav-text">配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#交易报盘配置"><span class="nav-number">1.3.1.</span> <span class="nav-text">交易报盘配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行情报盘配置"><span class="nav-number">1.3.2.</span> <span class="nav-text">行情报盘配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通讯层配置"><span class="nav-number">1.3.3.</span> <span class="nav-text">通讯层配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#报盘启动时序"><span class="nav-number">1.4.</span> <span class="nav-text">报盘启动时序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#市场之间的差异性"><span class="nav-number">1.5.</span> <span class="nav-text">市场之间的差异性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">1.6.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#交易所强平"><span class="nav-number">1.6.1.</span> <span class="nav-text">交易所强平</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运维"><span class="nav-number">1.6.2.</span> <span class="nav-text">运维</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浅谈仲裁"><span class="nav-number">1.6.3.</span> <span class="nav-text">浅谈仲裁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交易所接口文档剖析"><span class="nav-number">1.6.4.</span> <span class="nav-text">交易所接口文档剖析</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
